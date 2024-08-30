@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "concurrently \"pnpm --prefix client dev\" \"pnpm --prefix server start\"",
+    "build": "pnpm --prefix client build && pnpm --prefix server build",
+    "start": "pnpm --prefix server start:prod"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
