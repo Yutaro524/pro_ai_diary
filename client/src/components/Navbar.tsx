@@ -43,6 +43,11 @@ const NavigationBar: React.FC = () => {
                     {user ? (
                         <>
                         <Nav.Link href="/profile">{user.displayName}</Nav.Link>
+                        {location.pathname === '/' ? (
+                                <Nav.Link href="/memo">Memo</Nav.Link>
+                            ) : (
+                                <Nav.Link href="/">Calendar</Nav.Link>
+                            )}
                         <Button variant="outline-light" onClick={handleLogout}>
                             Logout
                         </Button>

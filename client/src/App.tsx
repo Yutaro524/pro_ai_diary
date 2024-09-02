@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { auth, registerUser, getUserFromFirestore, onAuthStateChanged } from './firebase';
 import { User } from 'firebase/auth';
 import { Calendar } from './components/Calendar';
 import NavigationBar from './components/Navbar';
+import { StoryListPage } from './components/storylist';
 import './App.css';
 
 const App: React.FC = () => {
@@ -26,14 +28,21 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="App">
-      <NavigationBar />
-      {user ? (
-        <Calendar />
-      ) : (
-        <div></div>
-      )}
-    </div>
+    <Router>
+      <div className="App">
+        <NavigationBar />
+        <Routes>
+          {user ? (
+            <>
+              <Route path="/" element={<Calendar />} />
+              <Route path="/memo" element={<StoryListPage />} />
+            </>
+          ) : (
+            <Route path="/" element={<div>ログインしてください</div>} />
+          )}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
