@@ -1,8 +1,19 @@
 import { style, globalStyle } from "@vanilla-extract/css";
 
 export const navbar = style({
-  backgroundColor: "#3182CE",
-  height: "50px",
+  backgroundColor: "#343a40", // Navbarの背景色
+  height: "60px", // 高さ
+});
+
+export const navbarToggle = style({
+  fontSize: '1.5rem', // トグルボタンのサイズ
+  border: 'none',
+  padding: '0.5rem',
+});
+
+export const offcanvasStyle = style({
+  backgroundColor: '#343a40', // Offcanvasの背景色
+  color: '#fff', // テキスト色
 });
 
 export const calendar = style({

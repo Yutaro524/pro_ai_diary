@@ -18,10 +18,12 @@
     "@vanilla-extract/vite-plugin": "^4.0.15",
     "axios": "^1.7.5",
     "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
     "firebase": "^10.13.0",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.3.1",
+    "react-responsive": "^10.0.0",
     "react-router-dom": "^6.26.1"
   },
   "devDependencies": {
