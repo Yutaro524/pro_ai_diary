@@ -45,7 +45,7 @@ const NavigationBar: React.FC = () => {
       <>
         <Navbar className={`fixed-top navbar ${navbar}`} bg="primary" variant="dark">
           <Container>
-            <Navbar.Brand href="/">My App</Navbar.Brand>
+            <Navbar.Brand href="/pro_ai_diary/">My App</Navbar.Brand>
             <Button
               variant="outline-light"
               onClick={() => setShowOffcanvas(true)}
@@ -94,17 +94,17 @@ const NavigationBar: React.FC = () => {
   return (
     <Navbar className={`fixed-top navbar ${navbar}`} bg="primary" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="/">My App</Navbar.Brand>
+        <Navbar.Brand href="/pro_ai_diary/">My App</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
             {user ? (
               <>
                 <Nav.Link>{user.displayName}</Nav.Link>
-                {location.pathname === '/' ? (
-                  <Nav.Link href="/memo">stories</Nav.Link>
+                {location.pathname === '/pro_ai_diary/' ? (
+                  <Nav.Link href="/pro_ai_diary/memo">stories</Nav.Link>
                 ) : (
-                  <Nav.Link href="/">Calendar</Nav.Link>
+                  <Nav.Link href="/pro_ai_diary/">Calendar</Nav.Link>
                 )}
                 <Button variant="outline-light" onClick={handleLogout}>
                   Logout
