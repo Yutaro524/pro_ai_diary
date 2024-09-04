@@ -35,10 +35,10 @@ const App: React.FC = () => {
           {user ? (
             <>
               <Route path="/pro_ai_diary/" element={<Calendar />} />
-              <Route path="/pro_ai_diary/memo" element={<StoryListPage />} />
+              <Route path="/pro_ai_diary/memo/" element={<StoryListPage />} />
             </>
           ) : (
-            <Route path="/" element={<div>ログインしてください</div>} />
+            <Route path="/pro_ai_diary/" element={<div>ログインしてください</div>} />
           )}
         </Routes>
       </div>

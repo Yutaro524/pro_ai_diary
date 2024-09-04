@@ -71,7 +71,7 @@ const NavigationBar: React.FC = () => {
                 <>
                   <Nav.Link>{user.displayName}</Nav.Link>
                   {location.pathname === '/pro_ai_diary/' ? (
-                    <Nav.Link href="/pro_ai_diary/memo">stories</Nav.Link>
+                    <Nav.Link href="/pro_ai_diary/memo/">stories</Nav.Link>
                   ) : (
                     <Nav.Link href="/pro_ai_diary/">Calendar</Nav.Link>
                   )}
@@ -102,7 +102,7 @@ const NavigationBar: React.FC = () => {
               <>
                 <Nav.Link>{user.displayName}</Nav.Link>
                 {location.pathname === '/pro_ai_diary/' ? (
-                  <Nav.Link href="/pro_ai_diary/memo">stories</Nav.Link>
+                  <Nav.Link href="/pro_ai_diary/memo/">stories</Nav.Link>
                 ) : (
                   <Nav.Link href="/pro_ai_diary/">Calendar</Nav.Link>
                 )}
