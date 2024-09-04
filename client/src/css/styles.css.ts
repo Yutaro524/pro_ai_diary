@@ -28,8 +28,6 @@ export const Stories = style({
   backgroundColor: "#E6FFFA",
   padding: "3rem",
   paddingTop: "5rem",
-  height: "100%",
-
 });
 
 globalStyle('.fc', {
