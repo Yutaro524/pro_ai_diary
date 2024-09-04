@@ -7,4 +7,5 @@ import path from 'path'
 export default defineConfig({
   plugins: [react(), vanillaExtractPlugin()],
   envDir: path.resolve(__dirname, '../'),
+  base: '/pro_ai_diary/',
 })
