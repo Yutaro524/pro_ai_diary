@@ -28,17 +28,17 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/pro_ai_diary">
       <div className="App">
         <NavigationBar />
         <Routes>
           {user ? (
             <>
-              <Route path="/pro_ai_diary/" element={<Calendar />} />
-              <Route path="/pro_ai_diary/memo/" element={<StoryListPage />} />
+              <Route path="/" element={<Calendar />} />
+              <Route path="memo" element={<StoryListPage />} />
             </>
           ) : (
-            <Route path="/pro_ai_diary/" element={<div>ログインしてください</div>} />
+            <Route path="/" element={<div>ログインしてください</div>} />
           )}
         </Routes>
       </div>
