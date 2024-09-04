@@ -39,17 +39,16 @@ jobs:
       - name: Build
         run: pnpm run build
         env: 
-          VITE_AZURE_OPENAI_API_KEY: ${{ secrets.VITE_AZURE_OPENAI_API_KEY }}
-          VITE_AZURE_OPENAI_ENDPOINT: ${{ secrets.VITE_AZURE_OPENAI_ENDPOINT }}
-          VITE_APIKEY: ${{ secrets.VITE_APIKEY }}
-          VITE_AUTHDOMAIN: ${{ secrets.VITE_AUTHDOMAIN }}
-          VITE_DATABASEURL: ${{ secrets.VITE_DATABASEURL }}
-          VITE_PROJECTID: ${{ secrets.VITE_PROJECTID }}
-          VITE_STORAGEBUCKET: ${{ secrets.VITE_STORAGEBUCKET }}
-          VITE_MESSAGINGSENDERID: ${{ secrets.VITE_MESSAGINGSENDERID }}
-          VITE_APPID: ${{ secrets.VITE_APPID }}
-          VITE_MEASUREMENTID: ${{ secrets.VITE_MEASUREMENTID }}
-          VITE_BASE_URL: ${{ vars.VITE_BASE_URL }}
+
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          VITE_FIREBASE_APIKEY: ${{ vars.VITE_FIREBASE_APIKEY }}
+          VITE_AUTHDOMAIN: ${{ vars.VITE_AUTHDOMAIN }}
+          VITE_PROJECTID: ${{ vars.VITE_PROJECTID }}
+          VITE_STORAGEBUCKET: ${{ vars.VITE_STORAGEBUCKET }}
+          VITE_MESSAGINGSENDERID: ${{ vars.VITE_MESSAGINGSENDERID }}
+          VITE_APPID: ${{ vars.VITE_APPID }}
+          VITE_MEASUREMENTID: ${{ vars.VITE_MEASUREMENTID }}
+          PORT: 3000
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
