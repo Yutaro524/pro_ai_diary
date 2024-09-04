@@ -70,8 +70,8 @@ const NavigationBar: React.FC = () => {
               {user ? (
                 <>
                   <Nav.Link>{user.displayName}</Nav.Link>
-                  {location.pathname === '/' ? (
-                    <Nav.Link href="/pro_ai_diary/memo">stories</Nav.Link>
+                  {location.pathname === '/pro_ai_diary/' ? (
+                    <Nav.Link href="/memo">stories</Nav.Link>
                   ) : (
                     <Nav.Link href="/">Calendar</Nav.Link>
                   )}
