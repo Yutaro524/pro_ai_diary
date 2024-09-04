@@ -34,8 +34,8 @@ const App: React.FC = () => {
         <Routes>
           {user ? (
             <>
-              <Route path="/" element={<Calendar />} />
-              <Route path="/memo" element={<StoryListPage />} />
+              <Route path="/pro_ai_diary/" element={<Calendar />} />
+              <Route path="/pro_ai_diary//memo" element={<StoryListPage />} />
             </>
           ) : (
             <Route path="/" element={<div>ログインしてください</div>} />
