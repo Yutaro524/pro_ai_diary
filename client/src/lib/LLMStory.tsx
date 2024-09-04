@@ -7,9 +7,13 @@ type EventData = {
 
 export const llmStory = async (eventsData: EventData[], contentsType: number): Promise<string> => {
   try {
-    const response = await axios.post('http://localhost:3000/api/openai', {
+    const response = await axios.post('https://zvhgtbs2iabsnxn6vkmqjxctza0mvhli.lambda-url.us-east-1.on.aws/', {
       eventsData,
       contentsType
+    },{
+      headers: {
+          'Content-Type': 'application/json',
+      }
     });
 
     const responses = response.data.choices?.[0]?.message?.content ?? '';
