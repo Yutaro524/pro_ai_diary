@@ -18,7 +18,7 @@ async function fetchAIStories(userId: string) {
 
 export function StoryListPage() {
     const [stories, setStories] = useState<{ id: string, story: string, startDate: { seconds: number }, endDate: { seconds: number } }[]>([]);
-    const [user, setUser] = useState<User | null>(null);
+    const [, setUser] = useState<User | null>(null);
     const [selectedStory, setSelectedStory] = useState<{ id: string, story: string, startDate: { seconds: number }, endDate: { seconds: number } } | null>(null);
     const [showModal, setShowModal] = useState(false);
 

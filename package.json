@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "concurrently \"pnpm --prefix client dev\" \"pnpm --prefix server start\"",
     "build": "pnpm --prefix client build && pnpm --prefix server build",
-    "start": "pnpm --prefix server start:prod"
+    "start": "concurrently \"pnpm --prefix server start:prod\" \"pnpm --prefix client start:prod\""
   },
   "devDependencies": {
     "concurrently": "^8.2.2"

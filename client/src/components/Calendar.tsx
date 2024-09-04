@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import { EventClickArg, DateSelectArg } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
-import { calendar, dropdownContainer } from '../css/styles.css';
+import { calendar } from '../css/styles.css';
 import { ModalDayMemo } from './ModalDayMemo';
 import { ModalAIStory } from './ModalAIStory';
 import { llmStory } from '../lib/LLMStory';
 import { firestore, auth } from '../firebase';
 import { collection, getDocs, addDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { User } from 'firebase/auth';
-import { DropdownButton, Dropdown, Button } from 'react-bootstrap';
+import { DropdownButton, Dropdown } from 'react-bootstrap';
 
 type EventInput = {
   id: string;
@@ -35,6 +35,8 @@ export function Calendar() {
   const [user, setUser] = useState<User | null>(null);
   const [selectedOption, setSelectedOption] = useState(''); // 選択されたオプションを保持する状態
   const [selectedOptionNumber, setSelectedOptionNumber] = useState<number>(0);
+  const calendarRef = useRef<FullCalendar>(null);
+
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -168,9 +170,9 @@ export function Calendar() {
     }
   };
 
-  return (
-    <div className={calendar}>
-      <div className={dropdownContainer}>
+  const customDropdown = () => {
+    return (
+      <div className="dropdownContainer">
         <DropdownButton
           id="dropdown-basic-button"
           title={selectedOption}
@@ -184,10 +186,16 @@ export function Calendar() {
           <Dropdown.Item eventKey="5">コミカル</Dropdown.Item>
           <Dropdown.Item eventKey="6">当事者</Dropdown.Item>
           <Dropdown.Item eventKey="7">人物関係</Dropdown.Item>
-          <Dropdown.Item eventKey="8"></Dropdown.Item>
+          <Dropdown.Item eventKey="8">別世界</Dropdown.Item>
         </DropdownButton>
       </div>
+    );
+  };
+
+  return (
+    <div className={calendar}>
       <FullCalendar
+      ref={calendarRef}
         plugins={[dayGridPlugin, interactionPlugin]}
         customButtons={{
           myCustomButton: {
@@ -230,6 +238,9 @@ export function Calendar() {
         select={handleDateSelect}
         eventClick={handleEventClick}
       />
+      <div className="dropdownContainer">
+        {customDropdown()}
+      </div>
       <ModalDayMemo
         title="出来事を追加"
         show={show}
