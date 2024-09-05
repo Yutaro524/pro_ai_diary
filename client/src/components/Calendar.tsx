@@ -33,8 +33,8 @@ export function Calendar() {
   const [events, setEvents] = useState<EventInput[]>([]);
   const [AIStory, setAIStory] = useState('AIストーリーが表示されます');
   const [user, setUser] = useState<User | null>(null);
-  const [selectedOption, setSelectedOption] = useState(''); // 選択されたオプションを保持する状態
-  const [selectedOptionNumber, setSelectedOptionNumber] = useState<number>(0);
+  const [selectedOption, setSelectedOption] = useState('写実'); // 選択されたオプションを保持する状態
+  const [selectedOptionNumber, setSelectedOptionNumber] = useState<number>(1);
   const calendarRef = useRef<FullCalendar>(null);
 
 
