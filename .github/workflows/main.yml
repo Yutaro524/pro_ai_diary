@@ -48,6 +48,7 @@ jobs:
           VITE_MESSAGINGSENDERID: ${{ vars.VITE_MESSAGINGSENDERID }}
           VITE_APPID: ${{ vars.VITE_APPID }}
           VITE_MEASUREMENTID: ${{ vars.VITE_MEASUREMENTID }}
+          VITE_BASE_URL: ${{ vars.VITE_BASE_URL }}
           PORT: 3000
       
       - name: Setup Pages
