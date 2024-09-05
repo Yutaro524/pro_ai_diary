@@ -11,6 +11,7 @@ const baseurl = import.meta.env.VITE_BASE_URL || '/';  // デフォルトで '/'
 
 const App: React.FC = () => {
   console.log(baseurl);
+  console.log(import.meta.env.VITE_BASE_URL);
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
