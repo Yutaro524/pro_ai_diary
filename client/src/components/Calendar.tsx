@@ -230,6 +230,7 @@ export function Calendar() {
           center: 'title',
           right: 'dayGridMonth,dayGridWeek',
         }}
+        titleFormat={{ year: 'numeric', month: 'short' }}
         initialView="dayGridMonth"
         events={events}
         dateClick={handleDateClick}
