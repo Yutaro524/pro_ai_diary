@@ -11,6 +11,6 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react(), vanillaExtractPlugin()],
     envDir: path.resolve(__dirname, '../'),
-    base,
+    base: base,
   };
 });
