@@ -7,6 +7,8 @@ import NavigationBar from './components/Navbar';
 import { StoryListPage } from './components/storylist';
 import './App.css';
 
+const baseurl = import.meta.env.VITE_BASE_URL || '/';  // デフォルトで '/' を設定
+
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
 
@@ -28,17 +30,17 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Router basename="/pro_ai_diary">
+    <Router>
       <div className="App">
         <NavigationBar />
         <Routes>
           {user ? (
             <>
-              <Route path="/" element={<Calendar />} />
-              <Route path="memo" element={<StoryListPage />} />
+              <Route path={`${baseurl}`} element={<Calendar />} />
+              <Route path={`${baseurl}memo`} element={<StoryListPage />} />
             </>
           ) : (
-            <Route path="/" element={<div>ログインしてください</div>} />
+            <Route path={`${baseurl}`} element={<div>ログインしてください</div>} />
           )}
         </Routes>
       </div>

@@ -10,6 +10,8 @@ import { onAuthStateChanged, User } from 'firebase/auth';
 import { navbar, navbarToggle, offcanvasStyle } from '../css/styles.css'; // スタイルをインポート
 import { useMediaQuery } from 'react-responsive'; // 追加
 
+const baseurl = import.meta.env.VITE_BASE_URL;
+
 const NavigationBar: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [showOffcanvas, setShowOffcanvas] = useState(false);
@@ -45,7 +47,7 @@ const NavigationBar: React.FC = () => {
       <>
         <Navbar className={`fixed-top navbar ${navbar}`} bg="primary" variant="dark">
           <Container>
-            <Navbar.Brand href="/pro_ai_diary/">My App</Navbar.Brand>
+            <Navbar.Brand href={`${baseurl}`}>My App</Navbar.Brand>
             <Button
               variant="outline-light"
               onClick={() => setShowOffcanvas(true)}
@@ -70,10 +72,10 @@ const NavigationBar: React.FC = () => {
               {user ? (
                 <>
                   <Nav.Link>{user.displayName}</Nav.Link>
-                  {location.pathname === '/pro_ai_diary/' ? (
-                    <Nav.Link href="/pro_ai_diary/memo/">stories</Nav.Link>
+                  {location.pathname === `${baseurl}` ? (
+                    <Nav.Link href={`${baseurl}memo`}>stories</Nav.Link>
                   ) : (
-                    <Nav.Link href="/pro_ai_diary/">Calendar</Nav.Link>
+                    <Nav.Link href={`${baseurl}`}>Calendar</Nav.Link>
                   )}
                   <Button variant="outline-light" onClick={handleLogout}>
                     Logout
@@ -94,17 +96,17 @@ const NavigationBar: React.FC = () => {
   return (
     <Navbar className={`fixed-top navbar ${navbar}`} bg="primary" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="/pro_ai_diary/">My App</Navbar.Brand>
+        <Navbar.Brand href={`${baseurl}`}>My App</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
             {user ? (
               <>
                 <Nav.Link>{user.displayName}</Nav.Link>
-                {location.pathname === '/pro_ai_diary/' ? (
-                  <Nav.Link href="/pro_ai_diary/memo/">stories</Nav.Link>
+                {location.pathname === `${baseurl}` ? (
+                  <Nav.Link href={`${baseurl}memo`}>stories</Nav.Link>
                 ) : (
-                  <Nav.Link href="/pro_ai_diary/">Calendar</Nav.Link>
+                  <Nav.Link href={`${baseurl}`}>Calendar</Nav.Link>
                 )}
                 <Button variant="outline-light" onClick={handleLogout}>
                   Logout
