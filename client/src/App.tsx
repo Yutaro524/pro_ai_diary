@@ -10,6 +10,7 @@ import './App.css';
 const baseurl = import.meta.env.VITE_BASE_URL || '/';  // デフォルトで '/' を設定
 
 const App: React.FC = () => {
+  console.log(baseurl);
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
